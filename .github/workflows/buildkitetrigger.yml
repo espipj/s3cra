@@ -1,0 +1,16 @@
+name: Buildkite
+
+on: [push]
+
+jobs:
+  tr-bk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger
+        uses: buildkite/trigger-pipeline-action@v1.2.0
+        with:
+          BUILDKITE_API_ACCESS_TOKEN: "${{ secrets.BUILDKITE_TKN }}"
+              PIPELINE: "twilio/pespinosabermejo-onboarding-template"
+              COMMIT: "HEAD"
+              BRANCH: "master"
+              MESSAGE: ":github: Triggered from a GitHub Action"
