@@ -8,8 +8,9 @@ jobs:
     steps:
       - name: Trigger
         uses: buildkite/trigger-pipeline-action@v1.2.0
-        with:
+        secrets:
           BUILDKITE_API_ACCESS_TOKEN: "${{ secrets.BUILDKITE_TKN }}"
+        env:
           PIPELINE: "twilio/pespinosabermejo-onboarding-template"
           COMMIT: "HEAD"
           BRANCH: "master"
